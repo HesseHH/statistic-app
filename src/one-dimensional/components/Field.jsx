@@ -1,15 +1,12 @@
-import React from 'react'
-
-export const Field = ({id, data = []}) => {
-    console.log(data)
+export const Field = ({ id, dataRow }) => {
   return (
     <>
-        {data.map(d => {
-            if (id == d.colID) {
-                return (<td>{d.value}</td>)
-            }
-            return (<></>)
-        })}
+      {Object.keys(dataRow).map(key => {
+        if (id == key) {
+          return (<td key={key} className='px-6 py-3 whitespace-nowrap text-cyan-600'>{dataRow[id]}</td>)
+        }
+        return null
+      })}
     </>
   )
 }

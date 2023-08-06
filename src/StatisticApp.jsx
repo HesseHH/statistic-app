@@ -1,10 +1,13 @@
-import { FrecuencyTable } from "./one-dimensional/components"
+import { FrecuencyTable } from './one-dimensional/components';
+import { Charts } from './one-dimensional/components/Charts';
+import { Information } from './one-dimensional/components/Information';
 
 export const StatisticApp = () => {
   return (
-    <>
-        <h1 className="text-center">Tablas de frecuencias</h1>
+    <div className="h-screen bg-slate-950">
         <FrecuencyTable />
-    </>
+        <Information />
+        <Charts />
+    </div>
   )
 }
