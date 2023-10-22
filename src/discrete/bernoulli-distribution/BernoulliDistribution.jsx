@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Formula, Input, TableDistribution } from '../../shared';
-import { calculate, setPSuccessValue } from '../../store/berboulliDistribution';
+import { Formula, Info, Input, SelectRounded, TableDistribution } from '../../shared';
+import { calculate, setPSuccessValue, setRoundedValue } from '../../store/berboulliDistribution';
 
 const formula = '\\(f(x) = P(X = x) = p^x (1-p)^{1-x} \\)';
-const formula2 = '\\(f(x) = P(X = x) = \\begin{cases} (1-p)^{1-x} & \\text{si } x=0 \\\\p^x & \\text{si } x=1 \\end{cases} \\)';
+const formula2 = '\\(f(x) = P(X = x) = \\begin{cases} 1-p & \\text{si } x=0 \\\\p & \\text{si } x=1 \\end{cases} \\)';
 // const formula = '\\(f(x) = P(X = x) = \\frac{n!}{x!(n-x)!} \\cdot p^x(1-p)^{n-x}\\)';
 const x = '\\(X\\)'
 export const BernoulliDistribution = () => {
-    const { p, isCalculated, results } = useSelector(state => state.bernoulliDistribution);
+    const { p, isCalculated, results, roundedTo } = useSelector(state => state.bernoulliDistribution);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -68,11 +68,15 @@ export const BernoulliDistribution = () => {
                     </div>
                 </div>
 
-                <TableDistribution 
+                <TableDistribution
                     isCalculated={isCalculated}
                     headers={['\\(x\\)', '\\(f(x)\\)']}
                     values={results}
                 />
+            </div>
+
+            <div className='flex justify-center sm:mt-0 mt-10 mb-2'>
+                <Info text={'Probabilidad de éxito'} element={'\\(p\\)'} value={p} />
             </div>
         </>
     )

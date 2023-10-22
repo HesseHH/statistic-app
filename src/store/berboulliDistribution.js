@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { bernoulliCalc, round } from '../shared/utils/maths';
+import { bernoulliCalc } from '../shared/utils/maths';
 
 const initialState = {
     p: 0,
@@ -15,36 +15,30 @@ export const bernoulliDistributionSlice = createSlice({
     initialState,
     reducers: {
         calculate: (state, action) => {
-            state.results = [
-                ...state.results,
-                {
-                    x: 0,
-                    value: round(bernoulliCalc(0, state.p), state.roundedTo)
-                }
-            ];
-            state.results = [
-                ...state.results,
-                {
-                    x: 1,
-                    value: round(bernoulliCalc(1, state.p), state.roundedTo)
-                }
-            ];
+            const auxResults = [];
+            auxResults.push({
+                x: 0,
+                value: bernoulliCalc(0, state.p)
+            });
+            auxResults.push({
+                x: 1,
+                value: bernoulliCalc(1, state.p)
+            });
+
             state.isCalculated = true;
+            state.results = auxResults;
         },
         setPSuccessValue: (state, { payload: {value} }) => {
             state.p = value;
         },
         setRoundedValue: (state, action) => {
             state.roundedTo = Number(action.payload.value);
-        },
-        reset: (state) => {
         }
     },
 });
 
 export const {
     calculate,
-    reset,
     setPSuccessValue,
     setRoundedValue
 } = bernoulliDistributionSlice.actions

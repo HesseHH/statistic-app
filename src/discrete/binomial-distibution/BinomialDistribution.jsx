@@ -28,7 +28,7 @@ export const BinomialDistribution = () => {
       </div>
 
       <div className='flex justify-center'>
-      <SelectRounded
+        <SelectRounded
           actualRoundedValue={roundedTo}
           limit={5}
           dispatchSettingFunction={setRoundedValue}
@@ -44,33 +44,33 @@ export const BinomialDistribution = () => {
             <div className='p-2'>
               <h2 className='text-xl text-cyan-600'>Probabilidad de éxito</h2>
               <div className='text-center'>
-              <Input
-                value={p}
-                functionDispatch={setPSuccessValue}
-              />
+                <Input
+                  value={p}
+                  functionDispatch={setPSuccessValue}
+                />
               </div>
             </div>
 
             <div className='p-2 pb-4'>
               <h2 className='text-xl text-cyan-600'>Cantidad de ensayos</h2>
               <div className='text-center'>
-              <Input
-                value={n}
-                functionDispatch={setNValue}
-              />
+                <Input
+                  value={n}
+                  functionDispatch={setNValue}
+                />
               </div>
             </div>
 
             <div className='flex justify-center'>
-            <button
-              className='rounded-full bg-cyan-600 text-lg mr-2 text-slate-950 p-2 w-40 hover:bg-cyan-500'
-              onClick={() => dispatch(calculate())}
-            >
-              <div className='flex justify-center items-center'>
-                <img src="/calculate.svg" />
-                <span className='ml-2'>Calcular</span>
-              </div>
-            </button>
+              <button
+                className='rounded-full bg-cyan-600 text-lg mr-2 text-slate-950 p-2 w-40 hover:bg-cyan-500'
+                onClick={() => dispatch(calculate())}
+              >
+                <div className='flex justify-center items-center'>
+                  <img src="/calculate.svg" />
+                  <span className='ml-2'>Calcular</span>
+                </div>
+              </button>
             </div>
           </div>
         </div>
