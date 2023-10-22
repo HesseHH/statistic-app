@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "yarn tailwindcss && vite build",
-    "build:netlify": "yarn tailwindcss && vite build && cp ./netlify ./dist/",
+    "build:netlify": "yarn tailwindcss && vite build && cp ./netlify.toml ./dist/",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "tailwindcss": "tailwindcss -i ./src/index.css -o ./dist/output.css",
