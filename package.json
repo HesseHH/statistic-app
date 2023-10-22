@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "yarn tailwindcss && vite build",
-    "build:netlify": "yarn tailwindcss && vite build && echo [[redirect]] > ./dist/netlify.toml && echo from = '/*' >> ./dist/netlify.toml && echo to = '/index.html' >> ./dist/netlify.toml && echo status = 200 >> ./dist/netlify.toml",
+    "build:netlify": "yarn tailwindcss && vite build && cp ./netlify.toml ./dist/",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "tailwindcss": "tailwindcss -i ./src/index.css -o ./dist/output.css",
