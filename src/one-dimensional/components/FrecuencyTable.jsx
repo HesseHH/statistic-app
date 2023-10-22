@@ -1,11 +1,20 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { calculate, reset } from '../../store/frecuency-table/frecuencyTableSlice';
-import { Header, SelectType, SelectColumns, SelectRounded, Table, Tooltip } from './';
+import { calculate, reset, setRoundedValue } from '../../store/frecuency-table/frecuencyTableSlice';
+import { Header, SelectType, SelectColumns, Table} from './';
+import { Info, SelectRounded } from '../../shared';
+
 
 export const FrecuencyTable = () => {
-    const { n, arithmeticMean, arithmeticMeanPw2, variance, deviation } = useSelector(state => state.frecuencyTable);
+    const {
+        n,
+        arithmeticMean,
+        arithmeticMeanPw2,
+        variance,
+        deviation,
+        roundedTo
+    } = useSelector(state => state.frecuencyTable);
 
     const dispatch = useDispatch();
 
@@ -18,7 +27,12 @@ export const FrecuencyTable = () => {
             <Header />
             <div className='flex justify-center items-center flex-wrap m-2 rounded-md text-cyan-600'>
                 <div className='p-2'>
-                    <SelectRounded />
+                    <SelectRounded 
+                        actualRoundedValue={roundedTo}
+                        limit={3}
+                        dispatchSettingFunction={setRoundedValue}
+                        dispatchCalculateFuntion={calculate}
+                    />
                 </div>
                 <div className='p-2'>
                     <SelectColumns />
@@ -31,21 +45,11 @@ export const FrecuencyTable = () => {
             <Table />
 
             <div className='flex justify-center sm:mt-0 mt-10 mb-2'>
-                <Tooltip text='Cantidad total de datos'>
-                    <p className='text-cyan-600 bg-slate-900 p-3 m-2 rounded-lg text-lg'>{'\\(n\\)'}: {n}</p>
-                </Tooltip>
-                <Tooltip text='Media arimética'>
-                    <p className='text-cyan-600 bg-slate-900 p-3 m-2 rounded-lg text-lg'>{'\\(\\bar{x}\\)'}: {arithmeticMean}</p>
-                </Tooltip>
-                <Tooltip text='Cuadrado de la media arimética'>
-                    <p className='text-cyan-600 bg-slate-900 p-3 m-2 rounded-lg text-lg'>{'\\(\\bar{x}^2\\)'}: {arithmeticMeanPw2}</p>
-                </Tooltip>
-                <Tooltip text='Varianza'>
-                    <p className='text-cyan-600 bg-slate-900 p-3 m-2 rounded-lg text-lg'>{'\\(\\sigma^2\\)'}: {variance}</p>
-                </Tooltip>
-                <Tooltip text='Desviación estándar'>
-                    <p className='text-cyan-600 bg-slate-900 p-3 m-2 rounded-lg text-lg'>{'\\(\\sigma\\)'}: {deviation}</p>
-                </Tooltip>
+                <Info text={'Cantidad total de datos'} element={'\\(n\\)'} value={n} />
+                <Info text={'Media arimética'} element={'\\(\\bar{x}\\)'} value={arithmeticMean} />
+                <Info text={'Cuadrado de la media arimética'} element={'\\(\\bar{x}^2\\)'} value={arithmeticMeanPw2} />
+                <Info text={'Varianza'} element={'\\(\\sigma^2\\)'} value={variance} />
+                <Info text={'Desviación estándar'} element={'\\(\\sigma\\)'} value={deviation} />
             </div>
 
             <span className="opacity-0 -z-50"></span>

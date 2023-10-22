@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-export const Input = ({ value, id, functionDispatch, upperLimit = null, lowerLimit = null }) => {
+export const Input = ({ value, id = null, functionDispatch, upperLimit = null, lowerLimit = null }) => {
 
     const dispatch = useDispatch();
     const handleOnFocus = event => event.target.select();

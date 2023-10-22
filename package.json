@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "yarn tailwindcss && vite build",
+    "build:netlify": "yarn tailwindcss && vite build && echo [[redirect]] > ./dist/netlify.toml && echo from = '/*' >> ./dist/netlify.toml && echo to = '/index.html' >> ./dist/netlify.toml && echo status = 200 >> ./dist/netlify.toml",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "tailwindcss": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch"
+    "tailwindcss": "tailwindcss -i ./src/index.css -o ./dist/output.css",
+    "tailwindcss:watch": "tailwindcss -i ./src/index.css -o ./dist/output.css --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -16,7 +18,8 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.1.1"
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.17.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",

@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 
 import { addRow, removeRow, setFrecAbs, setXValue } from '../../store/frecuency-table/frecuencyTableSlice';
-import { Field, Input, Tooltip } from './';
+import { Tooltip, Input } from '../../shared';
+import { Field } from './';
 
 export const Table = () => {
 

@@ -1,4 +1,4 @@
-import { round } from "./mathematics";
+import { round } from "../../shared";
 
 export const columns = [
     {

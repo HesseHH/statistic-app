@@ -1,7 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import { Formula, Paragraph, Section } from './';
+import { Paragraph, Section } from './';
+import { Formula } from '../../shared';
 import { info } from '../data/info';
+
 
 export const Information = () => {
 

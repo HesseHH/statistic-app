@@ -37,16 +37,20 @@ export const SelectColumns = () => {
     }, [groupedData]);
 
     useEffect(() => {
-        document.addEventListener('click', event => {
-            const divFormula = document.getElementById('formula');
-            const targetElement = event.target;
+        document.addEventListener('click', handleClickEvent);
+    }, []);
 
-            if (divFormula.contains(targetElement) === false) {
-                setOp(0);
-                setZIndex('-');
-            }
-        });
-    }, [])
+    const handleClickEvent = event => {
+        const divFormula = document.getElementById('formula');
+        const targetElement = event.target;
+
+        if (!divFormula) document.removeEventListener('click', handleClickEvent);
+
+        if (divFormula.contains(targetElement) === false) {
+            setOp(0);
+            setZIndex('-');
+        }
+    }
 
     const onClickFormula = (formula) => {
         setSelectedFormula(formula);
