@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { calculate, reset, setRoundedValue } from '../../store/frecuency-table/frecuencyTableSlice';
+import { calculate, reset, setRoundedValue } from '../../store/frecuencyTableSlice';
 import { Header, SelectType, SelectColumns, Table} from './';
 import { Info, SelectRounded } from '../../shared';
 

@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setColumns } from "../../store/frecuency-table/frecuencyTableSlice";
+import { setColumns } from "../../store/frecuencyTableSlice";
 
 // The id of each formula is the name of the attribute in columnByFormula(columns.js)
 

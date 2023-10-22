@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { columns, columnsByFormula } from '../../one-dimensional/data';
-import { calc, uuid } from '../../one-dimensional/utils';
-import { round } from '../../shared';
+import { columns, columnsByFormula } from '../one-dimensional/data';
+import { calc, uuid } from '../one-dimensional/utils';
+import { round } from '../shared';
 
 const initialState = {
     groupedData: false,

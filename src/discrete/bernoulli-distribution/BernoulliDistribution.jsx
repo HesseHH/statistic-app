@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Formula, Info, Input, SelectRounded, TableDistribution } from '../../shared';
-import { calculate, setPSuccessValue, setRoundedValue } from '../../store/berboulliDistribution';
+import { Formula, Info, Input, TableDistribution } from '../../shared';
+import { calculate, setPSuccessValue } from '../../store/berboulliDistributionSlice';
 
 const formula = '\\(f(x) = P(X = x) = p^x (1-p)^{1-x} \\)';
 const formula2 = '\\(f(x) = P(X = x) = \\begin{cases} 1-p & \\text{si } x=0 \\\\p & \\text{si } x=1 \\end{cases} \\)';

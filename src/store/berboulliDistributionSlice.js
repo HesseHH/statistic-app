@@ -15,18 +15,6 @@ export const bernoulliDistributionSlice = createSlice({
     initialState,
     reducers: {
         calculate: (state, action) => {
-            const auxResults = [];
-            auxResults.push({
-                x: 0,
-                value: bernoulliCalc(0, state.p)
-            });
-            auxResults.push({
-                x: 1,
-                value: bernoulliCalc(1, state.p)
-            });
-
-            state.isCalculated = true;
-            state.results = auxResults;
         },
         setPSuccessValue: (state, { payload: {value} }) => {
             state.p = value;
