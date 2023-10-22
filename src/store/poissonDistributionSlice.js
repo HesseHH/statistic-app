@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { bernoulliCalc } from '../shared/utils/maths';
+import { poissonCalc, round } from '../shared';
 
 const initialState = {
     p: 0,
@@ -16,20 +16,27 @@ export const poissonDistributionSlice = createSlice({
     reducers: {
         calculate: (state, action) => {
             const auxResults = [];
-            auxResults.push({
-                x: 0,
-                value: bernoulliCalc(0, state.p)
-            });
-            auxResults.push({
-                x: 1,
-                value: bernoulliCalc(1, state.p)
-            });
+            
+            for (let i = 0; i <= state.mu; i++) {
+                auxResults.push({
+                    x: i,
+                    value: round(poissonCalc(state.mu, i), state.roundedTo)
+                });
+            };
+
+            for (let i = state.mu+1; i <= state.mu * 2; i++) {
+                console.log('seconf for')
+                auxResults.push({
+                    x: i,
+                    value: round(poissonCalc(state.mu, i), state.roundedTo)
+                });
+            }
 
             state.isCalculated = true;
             state.results = auxResults;
         },
-        setPSuccessValue: (state, { payload: { value } }) => {
-            state.p = value;
+        setMuValue: (state, { payload: { value } }) => {
+            state.mu = Number(value);
         },
         setRoundedValue: (state, action) => {
             state.roundedTo = Number(action.payload.value);
@@ -39,6 +46,6 @@ export const poissonDistributionSlice = createSlice({
 
 export const {
     calculate,
-    setPSuccessValue,
+    setMuValue,
     setRoundedValue
 } = poissonDistributionSlice.actions

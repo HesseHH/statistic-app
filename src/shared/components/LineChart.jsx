@@ -6,10 +6,12 @@ import {
     Title,
     Tooltip,
     Legend,
-    ArcElement
+    ArcElement,
+    PointElement,
+    LineElement
 } from "chart.js";
 import { useEffect, useRef } from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 Chart.register(
     ArcElement,
@@ -18,7 +20,9 @@ Chart.register(
     BarElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
+    PointElement,
+    LineElement
 )
 
 Chart.defaults.color = '#0891b2'
@@ -35,7 +39,7 @@ const borderColor = [
     '#ec489988', '#f43f5e88', '#155e7588',
 ]
 
-export const BarChart = ({ isCalculated, x, y, xLabel = '', yLabel = '' }) => {
+export const LineChart = ({ isCalculated, x, y, xLabel = '', yLabel = '' }) => {
     const chartRef = useRef();
 
     useEffect(() => {
@@ -87,7 +91,7 @@ export const BarChart = ({ isCalculated, x, y, xLabel = '', yLabel = '' }) => {
             {!isCalculated
                 ? <></>
                 : <div className="sm:w-full md:w-[500px] lg:w-[700px]">
-                    <Bar
+                    <Line
                         options={options}
                         data={data}
                         ref={chartRef}         

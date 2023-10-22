@@ -25,6 +25,13 @@ export const Navbar = () => {
             >
                 Distribución de Bernoulli
             </li>
+
+            <li 
+                className='list-none pr-4'
+                onClick={() => navigate('/discrete/poisson-distribution')}
+            >
+                Distribución de Poisson
+            </li>
         </ul>
     </div>
   )

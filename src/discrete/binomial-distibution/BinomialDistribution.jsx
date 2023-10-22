@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BarChart, Formula, Info, Input, SelectRounded, TableDistribution, round } from '../../shared';
+import { LineChart, Formula, Info, Input, SelectRounded, TableDistribution } from '../../shared';
 import { useDispatch, useSelector } from 'react-redux';
 import { calculate, setNValue, setPSuccessValue, setRoundedValue } from '../../store/binomialDistributionSlice';
 
@@ -21,7 +21,6 @@ export const BinomialDistribution = () => {
       </h1>
 
       <div>
-        {/* <div><p className='text-cyan-600'>Fórmula</p></div> */}
         <div className='my-4'>
           <Formula><p className='sm:text-3xl text-lg'>{formula}</p></Formula>
         </div>
@@ -80,14 +79,15 @@ export const BinomialDistribution = () => {
           headers={['\\(x\\)', '\\(f(x)\\)']}
           values={results}
         />
-
-        <BarChart
-          isCalculated={isCalculated}
-          x={results.map(item => item.x)}
-          y={results.map(item => item.value)}
-          yLabel='Probabilidad'
-          xLabel='x'
-        />
+        <div className='mr-2'>
+          <LineChart
+            isCalculated={isCalculated}
+            x={results.map(item => item.x)}
+            y={results.map(item => item.value)}
+            yLabel='Probabilidad'
+            xLabel='x'
+          />
+        </div>
       </div>
 
 

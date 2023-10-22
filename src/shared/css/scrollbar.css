@@ -1,0 +1,21 @@
+/* scrollbar.css */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Personaliza el fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 8px;
+}
+
+/* Personaliza la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+    background: #0891b2;
+    border-radius: 8px;
+}
+
+/* Personaliza el color de fondo al pasar el ratón sobre la barra de desplazamiento */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

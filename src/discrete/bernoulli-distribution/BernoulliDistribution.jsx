@@ -6,8 +6,8 @@ import { calculate, setPSuccessValue } from '../../store/berboulliDistributionSl
 
 const formula = '\\(f(x) = P(X = x) = p^x (1-p)^{1-x} \\)';
 const formula2 = '\\(f(x) = P(X = x) = \\begin{cases} 1-p & \\text{si } x=0 \\\\p & \\text{si } x=1 \\end{cases} \\)';
-// const formula = '\\(f(x) = P(X = x) = \\frac{n!}{x!(n-x)!} \\cdot p^x(1-p)^{n-x}\\)';
 const x = '\\(X\\)'
+
 export const BernoulliDistribution = () => {
     const { p, isCalculated, results, roundedTo } = useSelector(state => state.bernoulliDistribution);
     const dispatch = useDispatch();

@@ -5,9 +5,6 @@ import {
     frecuencyTableSlice,
     poissonDistributionSlice
 } from './';
-// import { binomialDistributionSlice } from './binomialDistributionSlice';
-// import { bernoulliDistributionSlice } from './berboulliDistributionSlice';
-// import { poissonDistributionSlice } from './poissonDistributionSlice';
 
 export const store = configureStore({
     reducer: {
