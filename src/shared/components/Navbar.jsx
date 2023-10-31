@@ -1,12 +1,20 @@
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { toggleOpen } from '../../store';
 
 export const Navbar = () => {
 
-    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleClick = (event) => {
+        dispatch(toggleOpen());
+    }
 
   return (
     <div className='block p-2 bg-slate-900 text-cyan-600'>
-        <ul className='flex cursor-pointer '>
+        <p className='md:hidden inline-block' onClick={handleClick}>open</p>
+        <p className='ml-6 inline-block'>buscador</p>
+        {/* <ul className='flex cursor-pointer '>
             <li 
                 className='list-none pr-4'
                 onClick={() => navigate('/')}
@@ -32,7 +40,7 @@ export const Navbar = () => {
             >
                 Distribución de Poisson
             </li>
-        </ul>
+        </ul> */}
     </div>
   )
 }

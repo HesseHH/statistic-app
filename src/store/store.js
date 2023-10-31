@@ -3,7 +3,8 @@ import {
     bernoulliDistributionSlice,
     binomialDistributionSlice,
     frecuencyTableSlice,
-    poissonDistributionSlice
+    poissonDistributionSlice,
+    sidebarSlice
 } from './';
 
 export const store = configureStore({
@@ -11,7 +12,8 @@ export const store = configureStore({
         frecuencyTable: frecuencyTableSlice.reducer,
         binomialDistribution: binomialDistributionSlice.reducer,
         bernoulliDistribution: bernoulliDistributionSlice.reducer,
-        poissonDistribution: poissonDistributionSlice.reducer
+        poissonDistribution: poissonDistributionSlice.reducer,
+        sidebar: sidebarSlice.reducer
     }
 })
 

@@ -22,7 +22,7 @@ export const SelectRounded = ({ actualRoundedValue, limit, dispatchSettingFuncti
   // console.log(roundingNumbers);
   return (
     <div className='p-2 text-cyan-600'>
-      <span>Redondeo:</span>
+      <span className='lg:ml-0 ml-2'>Redondeo:</span>
       <select
         key={limit}
         className='appearance-none border-0 outline-0 w-60 h-10 text-white pl-3 ml-2 cursor-pointer customBackground hover:bg-slate-900'

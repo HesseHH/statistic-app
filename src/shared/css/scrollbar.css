@@ -5,7 +5,8 @@
 
 /* Personaliza el fondo de la barra de desplazamiento */
 ::-webkit-scrollbar-track {
-    background: transparent;
+    /* background: transparent; */
+    background: #020617;
     border-radius: 8px;
 }
 

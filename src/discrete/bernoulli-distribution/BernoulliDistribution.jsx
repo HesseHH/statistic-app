@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Formula, Info, Input, TableDistribution } from '../../shared';
-import { calculate, setPSuccessValue } from '../../store/berboulliDistributionSlice';
+import { calculate, setPSuccessValue } from '../../store/bernoulliDistributionSlice';
 
 const formula = '\\(f(x) = P(X = x) = p^x (1-p)^{1-x} \\)';
-const formula2 = '\\(f(x) = P(X = x) = \\begin{cases} 1-p & \\text{si } x=0 \\\\p & \\text{si } x=1 \\end{cases} \\)';
+const formula2 = '\\(f(x) = P(X = x) = \\begin{cases} 1-p & \\text{si } x=0 \\\\p & \\text{si } x=1 \\\\0 & \\text{en otro caso} \\end{cases} \\)';
 const x = '\\(X\\)'
 
 export const BernoulliDistribution = () => {
@@ -23,24 +23,38 @@ export const BernoulliDistribution = () => {
                 Distribución de Berboulli
             </h2>
 
-            <div>
-                <Formula>
-                    <p className='text-xl'>Una variable discreta {x}, sigue una distribución de Bernoulli, si su función está dada por:</p>
-                </Formula>
-                <p className='text-cyan-600'>
+            <hr className='border-cyan-500 my-3 border-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent' />
+
+            {/* Definition */}
+            <section className='bg-slate-800 m-4 p-2 rounded-md text-cyan-600'>
+                <h2 className='font-bold text-lg'>Definición:</h2>
+                <p>
+                    La variable aleatoria {'\\(X\\)'} posee una distribución de Bernoulli con parámetro&nbsp;
+                    {'\\(p\\)'} si solo puede tomar dos valores 0 o 1 (fracaso o éxito), con probabilidad positiva.
+                    Su función de probabilidad está dada por:
                 </p>
-            </div>
+                <Formula><p className='sm:text-xl text-lg'>{formula2}</p></Formula>
+                <p>Otra función de probabilidad equivalente está dada por:</p>
+                <Formula><p className='sm:text-xl text-lg'>{formula}</p></Formula>
+                <p>
+                    Se escribe {'\\(X \\sim B(p)\\)'} o {'\\(X \\stackrel{d}{=} B(p)\\)'}&nbsp;
+                    para indicar que la variable {'\\(X\\)'} tiene una distribución de Bernoulli de parámetro&nbsp;
+                    {'\\(p\\)'}.
+                </p>
+            </section>
 
-            <div>
-                <div><Formula><p className='sm:text-3xl text-sm'>{formula}</p></Formula></div>
-            </div>
-            <p className='text-cyan-600 text-center sm:text-2xl text-xl'>o</p>
-            <div>
-                <div><Formula><p className='sm:text-3xl text-sm'>{formula2}</p></Formula></div>
-            </div>
+            {/* <section className='bg-slate-800 m-4 p-2 rounded-md text-cyan-600'>
+                <h2 className='font-bold text-lg'>Fómula:</h2>
+                <div>
+                    <div><Formula><p className='sm:text-3xl text-sm'>{formula}</p></Formula></div>
+                </div>
+                <p className='text-cyan-600 text-center sm:text-2xl text-xl'>o</p>
+                <div>
+                    <div><Formula><p className='sm:text-3xl text-sm'>{formula2}</p></Formula></div>
+                </div>
+            </section> */}
 
-            <div className='sm:flex block justify-center'>
-
+            <section className='sm:grid block grid-rows-1 grid-cols-2 lg:grid-cols-2'>
                 <div>
                     <div className="bg-slate-800 shadow-md rounded-md gray sm:text-left text-center sm:p-4 p-0 m-2 relative">
 
@@ -73,7 +87,7 @@ export const BernoulliDistribution = () => {
                     headers={['\\(x\\)', '\\(f(x)\\)']}
                     values={results}
                 />
-            </div>
+            </section>
 
             <div className='flex justify-center sm:mt-0 mt-10 mb-2'>
                 <Info text={'Probabilidad de éxito'} element={'\\(p\\)'} value={p} />

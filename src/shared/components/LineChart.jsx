@@ -90,7 +90,7 @@ export const LineChart = ({ isCalculated, x, y, xLabel = '', yLabel = '' }) => {
         <>
             {!isCalculated
                 ? <></>
-                : <div className="sm:w-full md:w-[500px] lg:w-[700px]">
+                : <div className="w-full">
                     <Line
                         options={options}
                         data={data}
