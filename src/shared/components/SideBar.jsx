@@ -10,7 +10,7 @@ const links = [
         link: '/'
     },
     {
-        text: 'Discrete',
+        text: 'Variable discreta',
         link: '/discrete',
         childrens: [
             {
@@ -26,7 +26,25 @@ const links = [
                 link: '/discrete/poisson-distribution'
             }
         ]
-    }
+    },
+    // {
+    //     text: 'Continues',
+    //     link: '/continues',
+    //     childrens: [
+    //         {
+    //             text: 'Dsitribución Gaussiana',
+    //             link: '/continues/gaussian-distribution'
+    //         },
+    //         {
+    //             text: 'Dsitribución Log',
+    //             link: '/continues/gaussian-distribution'
+    //         },
+    //         {
+    //             text: 'Dsitribución Gaussiana',
+    //             link: '/continues/gaussian-distribution'
+    //         },
+    //     ]
+    // }
 ];
 
 export const SideBar = () => {
@@ -72,13 +90,12 @@ export const SideBar = () => {
 
                             <div className='flex flex-col'>
                                 {links.map((link, i) => (
-                                    <div key={i}>
                                         <Link
+                                            key={i}
                                             text={link.text}
                                             link={link.link}
                                             childs={link.childrens}
                                         />
-                                    </div>
                                 ))}
                             </div>
                         </div>

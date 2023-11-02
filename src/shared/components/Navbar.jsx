@@ -13,7 +13,7 @@ export const Navbar = () => {
   return (
     <div className='block p-2 bg-slate-900 text-cyan-600'>
         <p className='md:hidden inline-block' onClick={handleClick}>open</p>
-        <p className='ml-6 inline-block'>buscador</p>
+        {/* <p className='ml-6 inline-block'>buscador</p> */}
         {/* <ul className='flex cursor-pointer '>
             <li 
                 className='list-none pr-4'

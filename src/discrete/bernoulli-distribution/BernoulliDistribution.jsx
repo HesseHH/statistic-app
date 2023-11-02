@@ -26,7 +26,7 @@ export const BernoulliDistribution = () => {
             <hr className='border-cyan-500 my-3 border-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent' />
 
             {/* Definition */}
-            <section className='bg-slate-800 m-4 p-2 rounded-md text-cyan-600'>
+            <section className='m-4 p-2 rounded-md text-cyan-600'>
                 <h2 className='font-bold text-lg'>Definición:</h2>
                 <p>
                     La variable aleatoria {'\\(X\\)'} posee una distribución de Bernoulli con parámetro&nbsp;
